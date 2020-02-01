@@ -1,0 +1,106 @@
+<!DOCTYPE html> <html><head>
+        <title>Page Title</title>
+    <style>div {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+textarea {
+    width: 107%;
+    clear: both;
+}
+
+table {
+    width: 110%;
+}
+
+table, input  {
+    font-size: 24px;
+}
+
+input {
+    width: 135px;
+}
+td:nth-child(1) {
+    width: 135px;
+    text-align: right;
+}
+
+td {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+textarea, input {
+    font-size: 24px;
+}
+
+input[type='reset'] {
+    background-color: red;
+    
+    font-size: 28px;
+    color: white;
+}
+
+tr:nth-child(7) td:nth-child(1) {
+    border: none;
+}</style></head>
+    <body>
+        <div>
+            <textarea rows="5"></textarea>
+            
+            <table>
+                <tbody><tr>
+                    <td>Key Up: </td>
+                    <td><input class="up" type="number" disabled=""></td>
+                </tr><tr>
+                    <td>Key Down: </td>
+                    <td><input class="down" type="number" disabled=""></td>
+                </tr><tr>
+                    <td>Key Press: </td>
+                    <td><input class="press" type="text" disabled=""></td>
+                </tr><tr>
+                    <td>Key Code: </td>
+                    <td><input class="code" type="text" disabled=""></td>
+                </tr><tr>
+                    <td>Key: </td>
+                    <td><input class="key" type="text" disabled=""></td>
+                </tr><tr>
+                    <td>String Length </td>
+                    <td><input class="length" type="number" disabled=""></td>
+                </tr><tr>
+                    <td></td>
+                    <td><input type="reset" value="Reset"></td>
+                </tr>
+            </tbody></table>
+        </div>
+    
+<script>
+/*__POPCODESTART__*/
+function doc(name) {
+  return document.querySelector(name);
+}
+
+var up = 0,
+    down = 0,
+    press = 0;
+
+doc('textarea').oninput = function () {
+  doc('.length').value = this.value.length;
+};
+
+doc('textarea').onkeypress = function (e) {
+  doc('.press').value = press = press + 1;
+};
+
+doc('textarea').onkeyup = function (e) {
+  doc('.up').value = up = up + 1;
+};
+
+doc('textarea').onkeydown = function (e) {
+  doc('.down').value = down = down + 1;
+  doc('.key').value = e.key;
+  doc('.code').value = e.keyCode;
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvcGNvZGVQcmV2aWV3LmpzIl0sIm5hbWVzIjpbImRvYyIsIm5hbWUiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJ1cCIsImRvd24iLCJwcmVzcyIsIm9uaW5wdXQiLCJ2YWx1ZSIsImxlbmd0aCIsIm9ua2V5cHJlc3MiLCJlIiwib25rZXl1cCIsIm9ua2V5ZG93biIsImtleSIsImtleUNvZGUiXSwibWFwcGluZ3MiOiJBQUFBLFNBQVNBLEdBQVQsQ0FBYUMsSUFBYixFQUFrQjtBQUNkLFNBQU9DLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QkYsSUFBdkIsQ0FBUDtBQUNIOztBQUNELElBQUlHLEVBQUUsR0FBRyxDQUFUO0FBQUEsSUFDSUMsSUFBSSxHQUFHLENBRFg7QUFBQSxJQUVJQyxLQUFLLEdBQUcsQ0FGWjs7QUFJQU4sR0FBRyxDQUFDLFVBQUQsQ0FBSCxDQUFnQk8sT0FBaEIsR0FBMEIsWUFBVTtBQUNoQ1AsRUFBQUEsR0FBRyxDQUFDLFNBQUQsQ0FBSCxDQUFlUSxLQUFmLEdBQXVCLEtBQUtBLEtBQUwsQ0FBV0MsTUFBbEM7QUFDSCxDQUZEOztBQUlBVCxHQUFHLENBQUMsVUFBRCxDQUFILENBQWdCVSxVQUFoQixHQUE2QixVQUFTQyxDQUFULEVBQVc7QUFDcENYLEVBQUFBLEdBQUcsQ0FBQyxRQUFELENBQUgsQ0FBY1EsS0FBZCxHQUFzQkYsS0FBSyxHQUFHQSxLQUFLLEdBQUcsQ0FBdEM7QUFDSCxDQUZEOztBQUlBTixHQUFHLENBQUMsVUFBRCxDQUFILENBQWdCWSxPQUFoQixHQUEwQixVQUFTRCxDQUFULEVBQVc7QUFDakNYLEVBQUFBLEdBQUcsQ0FBQyxLQUFELENBQUgsQ0FBV1EsS0FBWCxHQUFtQkosRUFBRSxHQUFHQSxFQUFFLEdBQUcsQ0FBN0I7QUFDSCxDQUZEOztBQUlBSixHQUFHLENBQUMsVUFBRCxDQUFILENBQWdCYSxTQUFoQixHQUE0QixVQUFTRixDQUFULEVBQVc7QUFDbkNYLEVBQUFBLEdBQUcsQ0FBQyxPQUFELENBQUgsQ0FBYVEsS0FBYixHQUFxQkgsSUFBSSxHQUFHQSxJQUFJLEdBQUcsQ0FBbkM7QUFDQUwsRUFBQUEsR0FBRyxDQUFDLE1BQUQsQ0FBSCxDQUFZUSxLQUFaLEdBQW9CRyxDQUFDLENBQUNHLEdBQXRCO0FBQ0FkLEVBQUFBLEdBQUcsQ0FBQyxPQUFELENBQUgsQ0FBYVEsS0FBYixHQUFxQkcsQ0FBQyxDQUFDSSxPQUF2QjtBQUNILENBSkQiLCJzb3VyY2VzQ29udGVudCI6WyJmdW5jdGlvbiBkb2MobmFtZSl7XG4gICAgcmV0dXJuIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IobmFtZSk7XG59XG52YXIgdXAgPSAwLFxuICAgIGRvd24gPSAwLFxuICAgIHByZXNzID0gMDtcblxuZG9jKCd0ZXh0YXJlYScpLm9uaW5wdXQgPSBmdW5jdGlvbigpe1xuICAgIGRvYygnLmxlbmd0aCcpLnZhbHVlID0gdGhpcy52YWx1ZS5sZW5ndGg7XG59O1xuXG5kb2MoJ3RleHRhcmVhJykub25rZXlwcmVzcyA9IGZ1bmN0aW9uKGUpe1xuICAgIGRvYygnLnByZXNzJykudmFsdWUgPSBwcmVzcyA9IHByZXNzICsgMTtcbn07XG5cbmRvYygndGV4dGFyZWEnKS5vbmtleXVwID0gZnVuY3Rpb24oZSl7XG4gICAgZG9jKCcudXAnKS52YWx1ZSA9IHVwID0gdXAgKyAxO1xufTtcblxuZG9jKCd0ZXh0YXJlYScpLm9ua2V5ZG93biA9IGZ1bmN0aW9uKGUpe1xuICAgIGRvYygnLmRvd24nKS52YWx1ZSA9IGRvd24gPSBkb3duICsgMTtcbiAgICBkb2MoJy5rZXknKS52YWx1ZSA9IGUua2V5O1xuICAgIGRvYygnLmNvZGUnKS52YWx1ZSA9IGUua2V5Q29kZTtcbn07Il19</script></body></html>
