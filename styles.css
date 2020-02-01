@@ -1,0 +1,46 @@
+div {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+textarea {
+    width: 107%;
+    clear: both;
+}
+
+table {
+    width: 110%;
+}
+
+table, input  {
+    font-size: 24px;
+}
+
+input {
+    width: 135px;
+}
+td:nth-child(1) {
+    width: 135px;
+    text-align: right;
+}
+
+td {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+textarea, input {
+    font-size: 24px;
+}
+
+input[type='reset'] {
+    background-color: red;
+    
+    font-size: 28px;
+    color: white;
+}
+
+tr:nth-child(7) td:nth-child(1) {
+    border: none;
+}
